@@ -19,18 +19,23 @@ It has the following features:
 
 ## Examples:
 Landing page
+
 ![Screenshot 1](/readme_img/screen1.png)
 
 Player icon adapts to faction choice
+
 ![Screenshot 2](/readme_img/screen2.png)
 
 User is not allowed to submit until a faction has been chosen for each player
+
 ![Screenshot 3](/readme_img/screen3.png)
 
 Winning message
+
 ![Screenshot 4](/readme_img/screen4.png)
 
 Message on player tie
+
 ![Screenshot 5](/readme_img/screen5.png)
 
 <br>

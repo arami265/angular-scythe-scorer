@@ -1,0 +1,70 @@
+<div class="med-width padded centered">
+  <mat-card class = "centered">
+    <mat-card-header>
+      <img mat-card-avatar src="../../assets/img/{{ faction }}.jpg">
+      <mat-card-title>Player {{ id }}</mat-card-title>
+      <mat-card-subtitle
+      *ngIf="faction == 'Shiba'"> </mat-card-subtitle>
+      <mat-card-subtitle
+      *ngIf="faction != 'Shiba'">{{ faction }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <form class="input-grid" autocomplete="off">
+      <br>
+      <mat-form-field appearance="fill" class="grid-both-columns">
+        <mat-label>Player Faction</mat-label>
+        <mat-select matNativeControl name="faction" (valueChange)="onChangeFaction($event)">
+          <mat-option value="Shiba" selected></mat-option>
+          <mat-option *ngFor="let faction of availableFactions"
+          [value]="faction.name"
+          [disabled]="selectedFactions.has(faction.name)">{{ faction.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="grid-both-columns">
+        <mat-label>Number of coins in hand</mat-label>
+        <input matInput type="text" name="coins" (input)="onInputInHand($event.target!)" />
+      </mat-form-field>
+
+      <div class="grid-left">
+        Popularity: {{ popularity }}
+      </div>
+      <div class="grid-right">
+        <mat-slider thumbLabel
+        (valueChange)="onChangePopularity($event)"
+        min="0" max="18" value="0"
+        step="1"></mat-slider>
+      </div>
+
+      <div class="grid-left">
+        Stars: {{ stars }}
+      </div>
+      <div class="grid-right">
+        <mat-slider thumbLabel
+        (valueChange)="onChangeStars($event)"
+        min="0" max="6" value="0"
+        step="1"></mat-slider>
+      </div>
+
+      <mat-form-field class="grid-both-columns">
+        <mat-label>Number of territories controlled</mat-label>
+        <input matInput type="text" name="territories" (input)="onInputTerritories($event.target!)" />
+      </mat-form-field>
+
+      <mat-form-field class="grid-both-columns">
+        <mat-label>Number of resources controlled (do not divide!)</mat-label>
+        <input matInput type="text" name="resources" (input)="onInputResources($event.target!)" />
+      </mat-form-field>
+
+      <mat-form-field class="grid-both-columns">
+        <mat-label>Number of coins gained from the structure bonus</mat-label>
+        <input matInput type="text" name="structure-bonus" (input)="onInputStructureBonus($event.target!)" />
+      </mat-form-field>
+
+      <!-- <mat-form-field class="grid-both-columns">
+        <mat-label>Number of workers, mechs and structures (in case of tie)</mat-label>
+        <input matInput type="text" name="workers-mechs-structures" (input)="onInputworkersMechsStructures($event.target!)" />
+      </mat-form-field> -->
+    </form>
+  </mat-card>
+</div>

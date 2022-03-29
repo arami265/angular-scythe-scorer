@@ -1,0 +1,18 @@
+.input-grid {
+  display: inline-grid;
+  grid-template-columns: 25% auto;
+  width: 100%;
+  align-items: center;
+}
+
+.grid-left {
+  grid-column: 1/2;
+}
+
+.grid-right {
+  grid-column: 2/2;
+}
+
+.grid-both-columns {
+  grid-column-start: span 2;
+}

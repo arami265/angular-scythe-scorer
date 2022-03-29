@@ -1,27 +1,40 @@
-# AngularScytheScorer
+# angular-scythe-scorer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
-## Development server
+The app calculates one or more user's scores for the board game Scythe. It was inspired after some sessions in which the scoring phase took longer than desired.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It has the following features:
 
-## Code scaffolding
+- Custom Angular component for entering each player's data in a dedicated card
+- Angular structual directives for dynamically displaying cards, and entering various phases of the app
+- Two-way data binding to efficiently update array of objects in main App component
+- TypeScript Set to efficiently update unavailable options in dropdown selection
+- Hand stylized via the latest official Angular Material components and theming and custom CSS
+- Autoscroll to bottom on calculating scores to display results
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### [Visit the app here on Github Pages!](https://arami265.github.io/angular-scythe-scorer/) (It can lead you back here)
 
-## Build
+<br>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Examples:
+Landing page
+![Screenshot 1](/readme_img/screen1.png)
 
-## Running unit tests
+Player icon adapts to faction choice
+![Screenshot 2](/readme_img/screen2.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+User is not allowed to submit until a faction has been chosen for each player
+![Screenshot 3](/readme_img/screen3.png)
 
-## Running end-to-end tests
+Winning message
+![Screenshot 4](/readme_img/screen4.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Message on player tie
+![Screenshot 5](/readme_img/screen5.png)
 
-## Further help
+<br>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## TODO:
+- Implement backend services, to let multiple players asynchronously submit data
+- Add tie-breaking logic layer

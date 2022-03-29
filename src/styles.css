@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #EEEEEE;
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+ /* Non standard for WebKit */
+  word-break: break-word;
+
+  /* -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto; */
+}
+
+.padded {
+  padding: 15px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.med-width {
+  max-width: 500px;
+}
+
+.larger-width {
+  max-width: 650px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.left-text {
+  text-align: left;
+}
+
+.centered {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-flex {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pad-left {
+  padding-left: 1em;
+}

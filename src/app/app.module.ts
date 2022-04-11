@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { PlayerCardComponent } from './player-card/player-card.component';
 
@@ -30,7 +33,9 @@ import { PlayerCardComponent } from './player-card/player-card.component';
     MatCardModule,
     MatFormFieldModule,
     MatSliderModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

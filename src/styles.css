@@ -32,6 +32,10 @@ body {
   max-width: 650px;
 }
 
+.almost-full-width {
+  max-width: 80%;
+}
+
 .full-width {
   width: 100%;
 }

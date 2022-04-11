@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Subject} from 'rxjs';
 
 interface Faction {
   name: string;
@@ -22,7 +24,49 @@ interface player {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  destroyed = new Subject<void>();
+
+  constructor(public breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium
+    ])
+    .subscribe(result => {
+      if (result.matches) {
+        // console.log('one column')
+        // this.num_columns = 1;
+        this.changeNumColumns(1);
+      }
+    })
+
+    this.breakpointObserver.observe([
+      Breakpoints.Large
+    ])
+    .subscribe(result => {
+      if (result.matches) {
+        // console.log('two columns')
+        // this.num_columns = 2;
+        this.changeNumColumns(2);
+      }
+    })
+
+    this.breakpointObserver.observe([
+      Breakpoints.XLarge
+    ])
+    .subscribe(result => {
+      if (result.matches) {
+        // console.log('three columns')
+        // this.num_columns = 3;
+        this.changeNumColumns(3);
+      }
+    })
+  }
+
+  numColumns = 1;
 
   title = 'angular-scythe-scorer';
   playerCount = 0;
@@ -63,6 +107,20 @@ export class AppComponent {
       workersMechsStructures : 0
     }
   ];
+
+  changeNumColumns(maxColumns : number) {
+    if (maxColumns <= this.playerCount) {
+      this.numColumns = maxColumns;
+    }
+    else this.numColumns = this.playerCount;
+  }
+
+  getMatGridClass() {
+    if (this.numColumns > 1) {
+      return "centered almost-full-width"
+    }
+    else return "centered"
+  }
 
   goToBottom() {
     setTimeout(() => {
@@ -106,6 +164,19 @@ export class AppComponent {
     }
 
     this.shibaCount = this.playerCount;
+
+    if (this.breakpointObserver.isMatched([
+      Breakpoints.XLarge
+    ])) this.changeNumColumns(3);
+    if (this.breakpointObserver.isMatched([
+      Breakpoints.Large
+    ])) this.changeNumColumns(2);
+    if (this.breakpointObserver.isMatched([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium
+    ])) this.changeNumColumns(1);
+
     this.playerCountButtonPressed = true;
   }
 
@@ -163,4 +234,10 @@ export class AppComponent {
     this.calculateButtonPressed = true;
     this.goToBottom();
   }
+
+  ngOnDestroy(): void {
+      this.destroyed.next();
+      this.destroyed.complete();
+  }
+
 }

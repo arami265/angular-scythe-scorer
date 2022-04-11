@@ -47,21 +47,23 @@
 
 <!-- PHASE 2 -->
 <div *ngIf="playerCountButtonPressed">
-  <div *ngFor="let player of players">
-    <app-player-card
-    [availableFactions]="availableFactions"
-    [id]="player.id"
-    [(shibaCount)]="shibaCount"
-    [(selectedFactions)]="selectedFactions"
-    [(faction)]="player.faction"
-    [(inHand)]="player.inHand"
-    [(popularity)]="player.popularity"
-    [(stars)]="player.stars"
-    [(territories)]="player.territories"
-    [(structureBonus)]="player.structureBonus"
-    [(workersMechsStructures)]="player.workersMechsStructures"
-    ></app-player-card>
-  </div>
+  <mat-grid-list [cols]="numColumns" rowHeight="515px" [class]="getMatGridClass()">
+    <mat-grid-tile *ngFor="let player of players">
+      <app-player-card
+      [availableFactions]="availableFactions"
+      [id]="player.id"
+      [(shibaCount)]="shibaCount"
+      [(selectedFactions)]="selectedFactions"
+      [(faction)]="player.faction"
+      [(inHand)]="player.inHand"
+      [(popularity)]="player.popularity"
+      [(stars)]="player.stars"
+      [(territories)]="player.territories"
+      [(structureBonus)]="player.structureBonus"
+      [(workersMechsStructures)]="player.workersMechsStructures"
+      ></app-player-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 
   <div class="centered padded center-text larger-width">
     <button mat-raised-button *ngIf="playerCount > 1"

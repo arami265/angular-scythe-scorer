@@ -1,8 +1,14 @@
 .mat-card {
   display:inline-block;
   margin: 0;
-  min-width: 350px;
-  max-width:500px;
+}
+
+.large-card {
+  width: 500px;
+}
+
+.small-card {
+  width: 350px;
 }
 
 .input-grid {

@@ -50,6 +50,7 @@
   <mat-grid-list [cols]="numColumns" rowHeight="515px" [class]="getMatGridClass()">
     <mat-grid-tile *ngFor="let player of players">
       <app-player-card
+      [cardClass]="cardClass"
       [availableFactions]="availableFactions"
       [id]="player.id"
       [(shibaCount)]="shibaCount"

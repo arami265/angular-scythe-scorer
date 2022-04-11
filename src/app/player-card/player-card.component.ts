@@ -10,6 +10,7 @@ interface Faction {
   styleUrls: ['./player-card.component.css']
 })
 export class PlayerCardComponent {
+  @Input() cardClass! : string;
   @Input() availableFactions! : Faction[];
   @Input() id! : number;
 

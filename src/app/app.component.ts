@@ -40,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
         // console.log('one column')
         // this.num_columns = 1;
         this.changeNumColumns(1);
+        this.cardClass = 'centered small-card';
       }
     })
 
@@ -51,6 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
         // console.log('two columns')
         // this.num_columns = 2;
         this.changeNumColumns(2);
+        this.cardClass = 'centered large-card';
       }
     })
 
@@ -62,11 +64,13 @@ export class AppComponent implements OnInit, OnDestroy {
         // console.log('three columns')
         // this.num_columns = 3;
         this.changeNumColumns(3);
+        this.cardClass = 'centered large-card';
       }
     })
   }
 
   numColumns = 1;
+  cardClass = 'centered small-card';
 
   title = 'angular-scythe-scorer';
   playerCount = 0;
@@ -167,15 +171,24 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (this.breakpointObserver.isMatched([
       Breakpoints.XLarge
-    ])) this.changeNumColumns(3);
+    ])) {
+      this.changeNumColumns(3);
+      this.cardClass = 'centered large-card';
+    }
     if (this.breakpointObserver.isMatched([
       Breakpoints.Large
-    ])) this.changeNumColumns(2);
+    ])) {
+      this.changeNumColumns(2);
+      this.cardClass = 'centered large-card';
+    }
     if (this.breakpointObserver.isMatched([
       Breakpoints.XSmall,
       Breakpoints.Small,
       Breakpoints.Medium
-    ])) this.changeNumColumns(1);
+    ])) {
+      this.changeNumColumns(1);
+      this.cardClass = 'centered small-card';
+    }
 
     this.playerCountButtonPressed = true;
   }
